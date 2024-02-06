@@ -54,7 +54,7 @@ spec:
         initContainers:
           # Generate head's private key and certificate before `ray start`.
           - name: ray-head-tls
-            image: rayproject/ray:2.7.0
+            image: quay.apps.mgmt1.ocp.trafikverket.local/registry-1.docker.io/rayproject/ray:2.7.0
             command: ["/bin/sh", "-c", "cp -R /etc/ca/tls /etc/ray && /etc/gen/tls/gencert_head.sh"]
             volumeMounts:
               - mountPath: /etc/ca/tls
@@ -71,7 +71,7 @@ spec:
                     fieldPath: status.podIP
         containers:
         - name: ray-head
-          image: rayproject/ray:2.7.0
+          image: quay.apps.mgmt1.ocp.trafikverket.local/registry-1.docker.io/rayproject/ray:2.7.0
           ports:
           - containerPort: 6379
             name: gcs
@@ -142,7 +142,7 @@ spec:
         initContainers:
           # Generate worker's private key and certificate before `ray start`.
           - name: ray-worker-tls
-            image: rayproject/ray:2.7.0
+            image: quay.apps.mgmt1.ocp.trafikverket.local/registry-1.docker.io/rayproject/ray:2.7.0
             command: ["/bin/sh", "-c", "cp -R /etc/ca/tls /etc/ray && /etc/gen/tls/gencert_worker.sh"]
             volumeMounts:
               - mountPath: /etc/ca/tls
@@ -159,7 +159,7 @@ spec:
                     fieldPath: status.podIP
         containers:
         - name: ray-worker
-          image: rayproject/ray:2.7.0
+          image: quay.apps.mgmt1.ocp.trafikverket.local/registry-1.docker.io/rayproject/ray:2.7.0
           lifecycle:
             preStop:
               exec:

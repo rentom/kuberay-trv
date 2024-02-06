@@ -18,7 +18,7 @@ spec:
   headGroupSpec:
     # Kubernetes Service Type. This is an optional field, and the default value is ClusterIP.
     # Refer to https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types.
-    serviceType: ClusterIP
+    serviceType: NodePort
     # for the head group, replicas should always be 1.
     # headGroupSpec.replicas is deprecated in KubeRay >= 0.3.0.
     replicas: 1
@@ -36,7 +36,7 @@ spec:
       spec:
         containers:
         - name: ray-head
-          image: rayproject/ray:2.7.0
+          image: quay.apps.mgmt1.ocp.trafikverket.local/registry-1.docker.io/rayproject/ray:2.7.0
           # Optimal resource allocation will depend on your Kubernetes infrastructure and might
           # require some experimentation.
           # Setting requests=limits is recommended with Ray. K8s limits are used for Ray-internal
@@ -91,7 +91,7 @@ spec:
       spec:
         containers:
         - name: ray-worker
-          image: rayproject/ray:2.7.0
+          image: quay.apps.mgmt1.ocp.trafikverket.local/registry-1.docker.io/rayproject/ray:2.7.0
           # Optimal resource allocation will depend on your Kubernetes infrastructure and might
           # require some experimentation.
           # Setting requests=limits is recommended with Ray. K8s limits are used for Ray-internal
