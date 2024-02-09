@@ -3,7 +3,7 @@ $src = $args[0]
 
 # Define a dictionary of text pairs to replace
 $replaceDict = @{
-    "serviceType: ClusterIP" = "serviceType: NodePort"
+#    "serviceType: ClusterIP" = "serviceType: NodePort"
     "image: rayproject/ray:" = "image: quay.apps.mgmt1.ocp.trafikverket.local/registry-1.docker.io/rayproject/ray:"
     "image: busybox:" = "image: proget.trafikverket.local/docker/library/busybox:"
     # You can add more text pairs here

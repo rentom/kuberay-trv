@@ -9,7 +9,7 @@ metadata:
 spec:
   rayVersion: '2.7.0' # should match the Ray version in the image of the containers
   headGroupSpec:
-    serviceType: NodePort
+    serviceType: ClusterIP
     replicas: 1
     # The `rayStartParams` are used to configure the `ray start` command.
     # See https://github.com/ray-project/kuberay/blob/master/docs/guidance/rayStartParams.md for the default settings of `rayStartParams` in KubeRay.
